@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'geist';
+  src: url('/fonts/Geist-Black.ttf');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'geist';
+  src: url('/fonts/Geist-Bold.ttf');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'geist';
+  src: url('/fonts/Geist-SemiBold.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'geist';
+  src: url('/fonts/Geist-Medium.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'geist';
+  src: url('/fonts/Geist-Regular.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'geist-mono';
+  src: url('/fonts/GeistMono-Black.ttf');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'geist-mono';
+  src: url('/fonts/GeistMono-Bold.ttf');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'geist-mono';
+  src: url('/fonts/GeistMono-SemiBold.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'geist-mono';
+  src: url('/fonts/GeistMono-Medium.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'geist-mono';
+  src: url('/fonts/GeistMono-Regular.ttf');
+  font-weight: normal;
+}
+
+div, span {
+  @apply cursor-default text-xs
+}
