@@ -65,3 +65,12 @@
 div, span {
   @apply cursor-default text-xs
 }
+
+span.json-formatter-string {
+  color: #FFF !important;
+  white-space: pre-line !important;
+}
+
+span.json-formatter-key {
+  color: #fcc5ff !important
+}

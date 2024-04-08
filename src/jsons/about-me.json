@@ -1,0 +1,19 @@
+{
+  "name": "niko",
+  "lastname": "imerlishvili",
+  "email": "nikoimerlishvili@gmail.com",
+  "aboutme": "experienced developer with over 3 years of expertise, I possess a solid foundation in software development, with a true passion for utilizing React and TypeScript to create exceptional solutions, fostering continuous growth and learning in my current role, eagerly looking forward to connecting with fellow professionals and embracing fresh opportunities for advancement in the industry.",
+  "langauges": ["english", "georgian"],
+  "skills": [
+    "next.js",
+    "react",
+    "typescript",
+    "tailwind",
+    "web audio",
+    "prisma",
+    "postgres",
+    "unit testing",
+    "datocms",
+    "graphql"
+  ]
+}

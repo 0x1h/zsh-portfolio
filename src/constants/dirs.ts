@@ -20,6 +20,12 @@ export const directories: Directory[] = [
             dir: "socials",
             subDirs: [{ dir: "my-socials.json" }],
           },
+          {
+            dir: "about-me.json",
+          },
+          {
+            dir: "my-music-taste.json",
+          },
         ],
       },
     ],

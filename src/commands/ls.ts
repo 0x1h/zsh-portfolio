@@ -1,4 +1,3 @@
-import { directories } from "@/constants/dirs";
 import type { ResponseType } from "@/type";
 import { findDirectory } from "@/utils/find-dir";
 const cmdPlayground = document.getElementById(

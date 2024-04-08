@@ -18,8 +18,16 @@ const rejectResponse = ({ cmd, dir, runTime, args }: ResponseType) => `
 <div class="border-l-4 border-red-300 px-3 space-y-1 py-4 bg-red-700/20 w-full">
   <div class="text-zinc-300">~/${dir}<span class="text-[10px] ml-1">(${runTime})</span></div>
   <div class="font-semibold">${cmd} ${args?.join(" ")}</div>
-  <div>cd: no such file or directory: ${args?.[0]}</div>
+  <div>cd: no such directory: ${args?.[0]}</div>
 </div>
+`;
+
+const warnResponse = ({ cmd, dir, runTime, args }: ResponseType) => `
+  <div class="border-l-4 border-yellow-300 px-3 space-y-1 py-4 bg-yellow-700/20 w-full">
+    <div class="text-zinc-300">~/${dir}<span class="text-[10px] ml-1">(${runTime})</span></div>
+    <div class="font-semibold">${cmd} ${args?.join(" ")}</div>
+    <div>cd: '${args?.[0]}' is file, use 'read' command instead</div>
+  </div>
 `;
 
 export const cd = (props: ResponseType) => {
@@ -43,9 +51,12 @@ export const cd = (props: ResponseType) => {
     (props.dir !== "" && props.args?.[0] === "..")
   ) {
     const IS_FOLDER = !props.args?.[0].includes(".");
-    if (!IS_FOLDER && props.args?.[0] !== "..") return;
+    if (!IS_FOLDER && props.args?.[0] !== "..") {
+      const block = warnResponse(props);
+      cmdPlayground.innerHTML += block;
 
-    const block = successResponse(props);
+      return;
+    }
 
     if (props.args?.[0] !== "..") {
       const findDirectorySubs = findDir.subDirs?.filter(
@@ -62,6 +73,7 @@ export const cd = (props: ResponseType) => {
       chanageFolders([outDir]);
     }
 
+    const block = successResponse(props);
     cmdPlayground.innerHTML += block;
   } else {
     const block = rejectResponse(props);
