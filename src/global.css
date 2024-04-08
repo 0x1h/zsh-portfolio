@@ -74,3 +74,7 @@ span.json-formatter-string {
 span.json-formatter-key {
   color: #fcc5ff !important
 }
+
+a.json-formatter-url {
+  color: #a8dbff !important
+}
