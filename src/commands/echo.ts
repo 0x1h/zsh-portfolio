@@ -1,4 +1,4 @@
-import { ResponseType } from "../type";
+import { ResponseType } from "@/type";
 const cmdPlayground = document.getElementById(
   "cmd-playground"
 ) as HTMLTextAreaElement;

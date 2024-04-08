@@ -1,10 +1,10 @@
-import { CommandKeys } from "../type";
+import { CommandKeys } from "@/type";
 
 export const availableCommands: CommandKeys[] = [
   "ls",
   "help",
   "echo",
-  "open",
+  "read",
   "clear",
   "cd",
 ] as const;

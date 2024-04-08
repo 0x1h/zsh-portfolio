@@ -1,6 +1,6 @@
-import { directories } from "../constants/dirs";
-import type { ResponseType } from "../type";
-import { findDirectory } from "../utils/find-dir";
+import { directories } from "@/constants/dirs";
+import type { ResponseType } from "@/type";
+import { findDirectory } from "@/utils/find-dir";
 const cmdPlayground = document.getElementById(
   "cmd-playground"
 ) as HTMLTextAreaElement;
@@ -20,15 +20,13 @@ const successResponse = (props: ResponseType & { dirs: string[] }) => `
 export const ls = (props: ResponseType) => {
   const getDir = props.dir.split("/");
 
-  console.log(getDir[getDir.length - 1], directories);
+  const findDir = findDirectory(getDir[getDir.length - 1], globalThis.folders);
 
-  const findDir = findDirectory(getDir[getDir.length - 1], directories);
-
-  const dirs = findDir.subDirs.map((dir) => dir.dir);
+  const dirs = findDir.subDirs?.map((dir) => dir.dir);
 
   const block = successResponse({
     ...props,
-    dirs,
+    dirs: dirs as string[],
   });
 
   cmdPlayground.innerHTML += block;

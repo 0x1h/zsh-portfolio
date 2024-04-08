@@ -1,5 +1,5 @@
-import { availableCommands } from "../constants/commands";
-import { ResponseType } from "../type";
+import { availableCommands } from "@/constants/commands";
+import { ResponseType } from "@/type";
 const cmdPlayground = document.getElementById(
   "cmd-playground"
 ) as HTMLTextAreaElement;

@@ -1,18 +1,16 @@
-import { ResponseType } from "../type";
+import { ResponseType } from "@/type";
 import { ls } from "./ls";
 import { clear } from "./clear";
 import { echo } from "./echo";
 import { help } from "./help";
 import { cd } from "./cd";
+import { read } from "./read";
 
-export const commands = (
-  props: ResponseType,
-  changeDir: (dir: string | "..") => void
-) => ({
+export const commands = (props: ResponseType) => ({
   clear,
   ls: () => ls(props),
   help: () => help(props),
   echo: () => echo(props),
-  open: () => {},
-  cd: () => cd(props, changeDir),
+  read: () => read(props),
+  cd: () => cd(props),
 });

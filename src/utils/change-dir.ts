@@ -1,10 +1,9 @@
+import { store } from "@/lib/store";
 const dirName = document.getElementById("dir-name") as HTMLDivElement;
 
-export const changeDirectory = (
-  dir: string | "..",
-  currDir: string,
-  changeDir: (dir: string) => string
-) => {
+export const changeDirectory = (dir: string | "..") => {
+  const { changeDir, dir: currDir } = store();
+
   if (dir === "..") {
     const splitDir = currDir.split("/");
     splitDir.pop();

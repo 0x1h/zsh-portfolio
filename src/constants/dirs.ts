@@ -1,13 +1,8 @@
 export const DEFAULT_DIR = "desktop";
 
-export interface SubDirectory {
-  dir: string;
-  subDirs?: SubDirectory[];
-}
-
 export interface Directory {
   dir: string;
-  subDirs: SubDirectory[];
+  subDirs?: Directory[];
 }
 
 export const directories: Directory[] = [

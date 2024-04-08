@@ -1,4 +1,4 @@
-import { Directory } from "../constants/dirs";
+import { Directory } from "@/constants/dirs";
 
 export function findDirectory(
   dirName: string,

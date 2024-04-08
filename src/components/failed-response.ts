@@ -1,4 +1,4 @@
-import type { ResponseType } from "../type";
+import type { ResponseType } from "@/type";
 
 export const failedResponse = ({ cmd, dir, runTime, args }: ResponseType) => `
   <div class="border-l-4 border-red-300 px-3 space-y-1 py-4 bg-red-700/20 w-full">

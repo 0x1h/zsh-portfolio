@@ -1,6 +1,8 @@
-import { directories } from "../constants/dirs";
-import type { ResponseType } from "../type";
-import { findDirectory } from "../utils/find-dir";
+import { directories } from "@/constants/dirs";
+import { changeDirectory } from "@/utils/change-dir";
+import type { ResponseType } from "@/type";
+import { findDirectory } from "@/utils/find-dir";
+import { store } from "@/lib/store";
 const cmdPlayground = document.getElementById(
   "cmd-playground"
 ) as HTMLTextAreaElement;
@@ -20,17 +22,15 @@ const rejectResponse = ({ cmd, dir, runTime, args }: ResponseType) => `
 </div>
 `;
 
-export const cd = (
-  props: ResponseType,
-  changeDir: (dir: string | "..") => void
-) => {
+export const cd = (props: ResponseType) => {
+  const { chanageFolders } = store();
   const currentDirName = props.dir.split("/");
   const findDir = findDirectory(
     currentDirName[currentDirName.length - 1],
     directories
   );
 
-  const dirs = findDir.subDirs.map((dir) => dir.dir);
+  const dirs = findDir.subDirs?.map((dir) => dir.dir);
 
   if (props.args?.[0] === undefined) {
     const block = successResponse(props);
@@ -39,14 +39,29 @@ export const cd = (
   }
 
   if (
-    dirs.includes(props?.args?.[0] as string) ||
+    dirs?.includes(props?.args?.[0] as string) ||
     (props.dir !== "" && props.args?.[0] === "..")
   ) {
     const IS_FOLDER = !props.args?.[0].includes(".");
     if (!IS_FOLDER && props.args?.[0] !== "..") return;
 
     const block = successResponse(props);
-    changeDir(props.args?.[0] as string);
+
+    if (props.args?.[0] !== "..") {
+      const findDirectorySubs = findDir.subDirs?.filter(
+        ({ dir }) => dir === props.args?.[0]
+      );
+
+      if (findDirectorySubs) {
+        chanageFolders(findDirectorySubs);
+        changeDirectory(props.args?.[0]);
+      }
+    } else {
+      changeDirectory(props.args?.[0]);
+      const outDir = findDirectory(globalThis.dir, directories);
+      chanageFolders([outDir]);
+    }
+
     cmdPlayground.innerHTML += block;
   } else {
     const block = rejectResponse(props);
