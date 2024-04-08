@@ -31,7 +31,9 @@ input.addEventListener("keydown", (event) => {
     input.value = "";
 
     const queue = globalThis.queue;
-    queue.unshift(cacheInputValue.trim());
+    if (cacheInputValue.trim()) {
+      queue.unshift(cacheInputValue.trim());
+    }
     globalThis.queue = queue;
 
     localStorage.setItem(LOCALSTORAGE_QUEUE, JSON.stringify(queue));
