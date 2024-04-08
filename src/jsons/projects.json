@@ -2,7 +2,11 @@
   "projects": [
     {
       "name": "audiostream",
-      "url": "audiostream.space"
+      "url": "https://audiostream.space"
+    },
+    {
+      "name": "zsh-portfolio",
+      "url": "https://github.com/xhxe/zsh-portfolio"
     }
   ]
 }

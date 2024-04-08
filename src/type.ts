@@ -4,7 +4,7 @@ export type ResponseType = {
   dir: string;
   cmd: string;
   runTime: string;
-  args?: string[]
+  args?: string[];
 };
 
-export type CommandKeys = keyof ReturnType<typeof commands>
+export type CommandKeys = keyof ReturnType<typeof commands>;

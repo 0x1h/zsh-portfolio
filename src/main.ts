@@ -1,5 +1,5 @@
-import { runSetup } from "./setup";
-runSetup();
+import "./setup";
+import "./utils/window-events";
 
 import { availableCommands } from "./constants/commands";
 import { failedResponse } from "./components/failed-response";

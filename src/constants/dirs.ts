@@ -24,7 +24,7 @@ export const directories: Directory[] = [
             dir: "about-me.json",
           },
           {
-            dir: "my-music-taste.json",
+            dir: "music-taste.json",
           },
         ],
       },
