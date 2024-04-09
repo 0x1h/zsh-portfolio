@@ -45,12 +45,15 @@ export const cd = (props: ResponseType) => {
     cmdPlayground.innerHTML += block;
     return;
   }
+  
+  console.log(props.args?.[0]);
 
   if (
     dirs?.includes(props?.args?.[0] as string) ||
     (props.dir !== "" && props.args?.[0] === "..")
   ) {
     const IS_FOLDER = !props.args?.[0].includes(".");
+    
     if (!IS_FOLDER && props.args?.[0] !== "..") {
       const block = warnResponse(props);
       cmdPlayground.innerHTML += block;
